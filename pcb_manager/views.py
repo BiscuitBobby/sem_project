@@ -1,9 +1,7 @@
-import os
 import json
 import base64
 import traceback
 import logging
-from django.conf import settings
 from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
@@ -13,8 +11,7 @@ from rest_framework.exceptions import ParseError, APIException
 
 from .models import Device, PCBAnalysisResult
 from .serializers import (
-    AnalysisResultSerializer, DeviceResponseSerializer,
-    DeviceWithMessagesSerializer, ChatMessageSerializer
+    DeviceResponseSerializer, DeviceWithMessagesSerializer
 )
 
 from langchain_openai import ChatOpenAI
@@ -151,6 +148,7 @@ def list_all_devices(request):
     """
     devices = Device.objects.filter(user=request.user).order_by('-created_at')
     serializer = DeviceResponseSerializer(devices, many=True)
+    # print(serializer.data)  # Debugging output
     return Response(serializer.data)
 
 

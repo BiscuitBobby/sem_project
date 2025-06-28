@@ -8,11 +8,8 @@ from django.urls import reverse
 from django.test import TestCase
 from unittest.mock import patch, MagicMock
 from rest_framework.test import APIRequestFactory
-from rest_framework import status
-from django.contrib.auth.models import AnonymousUser
 
 from accounts.views import RegisterAPIView, LoginAPIView, LogoutAPIView, UserProfileAPIView
-from accounts.serializers import UserSerializer
 
 # ------------ Integration testing ------------
 class AuthTests(APITestCase):

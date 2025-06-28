@@ -1,7 +1,6 @@
 # accounts/urls.py
 from django.urls import path
-from . import views # Keep the old views
-from .views import RegisterAPIView, LoginAPIView, LogoutAPIView, UserProfileAPIView # Import new API views
+from .views import RegisterAPIView, LoginAPIView, LogoutAPIView, UserProfileAPIView
 
 urlpatterns = [
     # API Auth URLs
